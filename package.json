@@ -43,26 +43,26 @@
   },
   "homepage": "https://github.com/NoriSte/javascript-testing-practical-approach-2021-course-v3#readme",
   "devDependencies": {
-    "@cypress/react": "^4.16.4",
-    "@testing-library/cypress": "7.0.1",
-    "cross-env": "7.0.2",
-    "cypress": "^6.8.0",
-    "cypress-wait-until": "^1.7.1",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-cypress": "^2.11.2",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
+    "@cypress/react": "^5.12.0",
+    "@testing-library/cypress": "8.0.2",
+    "cross-env": "7.0.3",
+    "cypress": "^9.2.0",
+    "cypress-wait-until": "^1.7.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "npm": "6.14.8",
     "npm-run-all": "4.1.5",
-    "prettier": "^2.1.2",
+    "prettier": "^2.5.1",
     "react-dom": "^17.0.2",
-    "start-server-and-test": "1.11.5"
+    "start-server-and-test": "1.14.0"
   },
   "dependencies": {
     "react": "^17.0.2",
     "react-smooth-scrollbar": "^8.0.6",
-    "smooth-scrollbar": "^8.6.1",
-    "styled-components": "^5.2.1"
+    "smooth-scrollbar": "^8.7.2",
+    "styled-components": "^5.3.3"
   }
 }

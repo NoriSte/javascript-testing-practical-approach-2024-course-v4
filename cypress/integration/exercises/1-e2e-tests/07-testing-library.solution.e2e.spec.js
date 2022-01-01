@@ -28,7 +28,7 @@ context('The sign up page', () => {
     cy.findByPlaceholderText('Email').type(`foo${random}@bar.com`)
     cy.findByPlaceholderText('Password').type('bazbazbaz')
 
-    cy.intercept('POST', '**/api/users').as('signup-request')
+    cy.intercept('POST', '**/api.realworld.io/api/users').as('signup-request')
 
     cy.get('form').within(() => cy.findByText('Sign up').click())
 
@@ -46,7 +46,7 @@ context('The sign up page', () => {
     cy.findByPlaceholderText('Email').type(`foo${random}@bar.com`)
     cy.findByPlaceholderText('Password').type('bazbazbaz')
 
-    cy.intercept('POST', '**/api/users').as('signup-request')
+    cy.intercept('POST', '**/api.realworld.io/api/users').as('signup-request')
 
     cy.findByRole('button', { name: 'Sign up' }).click()
 

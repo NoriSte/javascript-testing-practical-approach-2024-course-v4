@@ -34,12 +34,12 @@ context('The sign up page', () => {
     cy.get('.form-control').eq(1).type(`foo${random}@bar.com`)
     cy.get('.form-control').eq(2).type('bazbazbaz')
 
-    cy.intercept('POST', '**/api/users').as('signup-request')
+    cy.intercept('POST', '**/api.realworld.io/api/users').as('signup-request')
 
     cy.get('button').click()
     cy.wait('@signup-request')
 
-    cy.location().its('pathname').should('eq', '/')
+    cy.location().should(location => expect(location.pathname).to.eq('/'))
   })
 
   it('Playground: avoid hard coding the server host', () => {
@@ -49,11 +49,11 @@ context('The sign up page', () => {
     cy.get('.form-control').eq(1).type(`foo${random}@bar.com`)
     cy.get('.form-control').eq(2).type('bazbazbaz')
 
-    cy.intercept('POST', '**/api/users').as('signup-request')
+    cy.intercept('POST', '**/api.realworld.io/api/users').as('signup-request')
 
     cy.get('button').click()
     cy.wait('@signup-request')
 
-    cy.location().its('pathname').should('eq', '/')
+    cy.location().should(location => expect(location.pathname).to.eq('/'))
   })
 })

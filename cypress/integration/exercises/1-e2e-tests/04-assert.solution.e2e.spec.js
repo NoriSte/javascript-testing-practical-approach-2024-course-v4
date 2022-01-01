@@ -50,7 +50,7 @@ context('The sign up page', () => {
     // waiting for the redirect to the home page
     cy.wait(10000)
 
-    cy.location().its('pathname').should('eq', '/')
+    cy.location().should(location => expect(location.pathname).to.eq('/'))
   })
 
   it('Playground: avoid unnecessary timeout', function () {

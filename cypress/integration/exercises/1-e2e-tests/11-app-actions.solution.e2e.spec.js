@@ -20,7 +20,7 @@ Cypress.Commands.add('register', { prevSubject: 'optional' }, function (_subject
     password: 'bazbazbaz',
   }
 
-  cy.intercept('POST', '**/api/users').as('signup-request')
+  cy.intercept('POST', '**/api.realworld.io/api/users').as('signup-request')
 
   cy.window().its('appActions').invoke('signup', credentials)
 

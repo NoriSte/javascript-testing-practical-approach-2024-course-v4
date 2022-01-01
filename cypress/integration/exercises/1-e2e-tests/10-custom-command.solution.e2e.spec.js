@@ -38,7 +38,7 @@ Cypress.Commands.add('register', { prevSubject: 'optional' }, function (_subject
   })
   cy.findByPlaceholderText('Password', noLog).type('bazbazbaz', { delay: 0, log: false })
 
-  cy.intercept('POST', '**/api/users').as('signup-request')
+  cy.intercept('POST', '**/api.realworld.io/api/users').as('signup-request')
 
   cy.get('form', noLog).within(() => cy.findByText('Sign up', noLog).click(noLog))
 

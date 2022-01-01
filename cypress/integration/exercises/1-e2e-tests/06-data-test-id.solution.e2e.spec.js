@@ -23,11 +23,11 @@ context('The sign up page', () => {
     cy.get('[data-testid=email]').type(`foo${random}@bar.com`)
     cy.get('[data-testid=password]').type('bazbazbaz')
 
-    cy.intercept('POST', '**/api/users').as('signup-request')
+    cy.intercept('POST', '**/api.realworld.io/api/users').as('signup-request')
 
     cy.get('[data-testid=signup-button]').click()
     cy.wait('@signup-request')
 
-    cy.location().its('pathname').should('eq', '/')
+    cy.location().should(location => expect(location.pathname).to.eq('/'))
   })
 })
