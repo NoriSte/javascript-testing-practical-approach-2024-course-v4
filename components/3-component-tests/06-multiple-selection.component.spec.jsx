@@ -57,7 +57,7 @@ describe("VirtualList wrapper", () => {
     cy.viewport(300, 300);
   });
 
-  it("The additive selection should work", () => {
+  it.skip("The additive selection should work", () => {
     // ...
   });
 });

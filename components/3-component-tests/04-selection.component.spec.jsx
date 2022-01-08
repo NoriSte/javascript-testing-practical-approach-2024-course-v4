@@ -42,7 +42,7 @@ describe("VirtualList", () => {
     cy.viewport(300, 300);
   });
 
-  it("Should select an item when the item is clicked", () => {
+  it.skip("Should select an item when the item is clicked", () => {
     // ...
     // the VirtualList accepts a prop `onSelect` which is called with the new selection
   });

@@ -37,7 +37,7 @@ describe("VirtualList", () => {
     cy.viewport(300, 300);
   });
 
-  it("Should render only the visible items and the buffered ones", () => {
+  it.skip("Should render only the visible items and the buffered ones", () => {
     //...
     /*
     // the component is

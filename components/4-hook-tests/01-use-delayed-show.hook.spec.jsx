@@ -23,7 +23,7 @@ describe("useDelayedShow", () => {
     cy.viewport(300, 300);
   });
 
-  it("Should have visible set to false at the beginning", () => {
+  it.skip("Should have visible set to false at the beginning", () => {
     // ...
     // mount `HookConsumer`
   });

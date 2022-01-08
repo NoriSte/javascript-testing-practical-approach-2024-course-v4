@@ -11,20 +11,21 @@
     "// CYPRESS ///////////": "",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cy-run-record": "node utils/cy-run-record.js",
+    "cy:open:ct": "cypress open-ct",
+    "cy:run:ct": "cypress run-ct",
     "// REALWORLD ///////////": "",
     "realworld:install": "npm run realworld:frontend:install",
     "realworld:frontend:install": "cd realworld/frontend && npm i",
     "realworld:start": "npm run realworld:frontend:start",
     "realworld:frontend:start": "cd realworld/frontend && npm start",
-    "realworld:cy": "npm run cy-run-record -- --spec \"cypress/integration/realworld/**/*\"",
+    "realworld:cy": "npm run cy:run -- --spec \"cypress/integration/realworld/**/*\"",
     "// EXERCISES ///////////": "",
     "run:exercises": "npm-run-all -s exercises:**",
-    "exercises:e2e": "npm run cy-run-record -- --spec \"cypress/integration/exercises/1-e2e-tests/*.solution.*\"",
-    "exercises:ui-integration": "npm run cy-run-record -- --spec \"cypress/integration/exercises/2-ui-integration-tests/*.solution.*\"",
-    "exercises:component": "npm run cy-run-record -- --spec \"components/3-component-tests/*.solution.*\"",
-    "exercises:hook": "npm run cy-run-record -- --spec \"components/4-hook-tests/*.solution.*\"",
-    "exercises:unit": "npm run cy-run-record -- --spec \"cypress/integration/exercises/5-unit-tests/*.solution.*\""
+    "exercises:e2e": "npm run cy:run -- --spec \"cypress/integration/exercises/1-e2e-tests/*.solution.*\"",
+    "exercises:ui-integration": "npm run cy:run -- --spec \"cypress/integration/exercises/2-ui-integration-tests/*.solution.*\"",
+    "exercises:component": "npm run cy:run:ct --spec \"*.solution.*\"",
+    "exercises:hook": "npm run cy:run -- --spec \"components/4-hook-tests/*.solution.*\"",
+    "exercises:unit": "npm run cy:run -- --spec \"cypress/integration/exercises/5-unit-tests/*.solution.*\""
   },
   "repository": {
     "type": "git",
@@ -60,9 +61,12 @@
     "start-server-and-test": "1.14.0"
   },
   "dependencies": {
+    "@cypress/vite-dev-server": "^2.2.2",
+    "@vitejs/plugin-react": "^1.1.4",
     "react": "^17.0.2",
     "react-smooth-scrollbar": "^8.0.6",
     "smooth-scrollbar": "^8.7.2",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "vite": "^2.7.10"
   }
 }

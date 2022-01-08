@@ -16,7 +16,33 @@
 // `config` is the resolved Cypress config
 // }
 
+// module.exports = (on, config) => {
+// you can open devtools directly
+// see https://docs.cypress.io/api/plugins/browser-launch-api#Modify-browser-launch-arguments
+// }
+
+const { startDevServer } = require('@cypress/vite-dev-server')
+
+const { defineConfig } = require('vite')
+const reactPlugin = require('@vitejs/plugin-react')
+
+/**
+ * @type {Cypress.PluginConfig}
+ *
+ * see: https://docs.cypress.io/guides/component-testing/framework-configuration#Vite-Based-Projects-Vue-React
+ */
 module.exports = (on, config) => {
-  // you can open devtools directly
-  // see https://docs.cypress.io/api/plugins/browser-launch-api#Modify-browser-launch-arguments
+  // `on` is used to hook into various events Cypress emits
+  // `config` is the resolved Cypress config
+
+  on('dev-server:start', options => {
+    return startDevServer({
+      options,
+      viteConfig: defineConfig({
+        plugins: [reactPlugin()],
+      }),
+    })
+  })
+
+  return config
 }

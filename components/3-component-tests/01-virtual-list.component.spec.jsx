@@ -50,7 +50,7 @@ describe("VirtualList", () => {
     cy.viewport(300, 300);
   });
 
-  it("Should render only the visible items", () => {
+  it.skip("Should render only the visible items", () => {
     // ...
     /*
     // the component is

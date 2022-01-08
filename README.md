@@ -49,4 +49,6 @@ I wrote a big [UI Testing Best Practices](https://github.com/NoriSte/ui-testing-
 
 ## Changes compared to the previous version of the course
 
-TODO:
+- Upgrade to Cypress 9
+- Split component tests
+- Remove cy-run-record

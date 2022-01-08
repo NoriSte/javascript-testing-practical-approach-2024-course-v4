@@ -37,7 +37,7 @@ describe("VirtualList", () => {
     cy.viewport(300, 300);
   });
 
-  it("Should not render anything when no items are provided", () => {
+  it.skip("Should not render anything when no items are provided", () => {
     // ...
     /*
     // the component is

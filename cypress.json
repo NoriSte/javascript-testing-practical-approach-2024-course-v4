@@ -1,4 +1,7 @@
 {
   "baseUrl": "http://localhost:4100",
-  "testFiles": "**/*spec.{js,jsx,ts,tsx}"
+  "testFiles": "**/*spec.{js,jsx,ts,tsx}",
+  "componentFolder": "components",
+  "screenshotOnRunFailure": false,
+  "video": false
 }

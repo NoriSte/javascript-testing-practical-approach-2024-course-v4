@@ -64,7 +64,7 @@ describe("VirtualList wrapper", () => {
     cy.viewport(300, 300);
   });
 
-  it("Playground: test the selection with a mini-app that exposes the selected items", () => {
+  it.skip("Playground: test the selection with a mini-app that exposes the selected items", () => {
     // ...
     // `SelectableList` must be mounted instead of `VirtualList`
   });

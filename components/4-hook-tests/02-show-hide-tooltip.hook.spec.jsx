@@ -30,7 +30,7 @@ describe("useDelayedShow", () => {
     cy.viewport(300, 300);
   });
 
-  it("Should set `visible` to `true` after a delay", () => {
+  it.skip("Should set `visible` to `true` after a delay", () => {
     // ------------------------------------------
     // Arrange
     mount(<HookConsumer />);
@@ -49,7 +49,7 @@ describe("useDelayedShow", () => {
     cy.contains("Visible: true").should("be.visible");
   });
 
-  it("Should set `visible` to `true` after a delay, then set `visible` to `false` immediately", () => {
+  it.skip("Should set `visible` to `true` after a delay, then set `visible` to `false` immediately", () => {
     // ------------------------------------------
     // Arrange
     mount(<HookConsumer />);
@@ -71,7 +71,7 @@ describe("useDelayedShow", () => {
     cy.contains("Visible: false", { timeout: 0 }).should("be.visible");
   });
 
-  it("Playground: Repeat the previous test by controlling that `visible: true` does not return visible through controlling the failure of the test ", () => {
+  it.skip("Playground: Repeat the previous test by controlling that `visible: true` does not return visible through controlling the failure of the test ", () => {
     // ------------------------------------------
     // Arrange
     mount(<HookConsumer />);
