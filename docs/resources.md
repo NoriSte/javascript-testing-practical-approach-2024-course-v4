@@ -24,6 +24,7 @@
 - Filip Hric: [Improve your custom command logs in Cypress](https://filiphric.com/improve-your-custom-command-logs-in-cypress)
 - Gleb Bahmutov: [12 Recipes for testing React applications using cypress-react-unit-test](https://dev.to/bahmutov/12-recipes-for-testing-react-applications-using-cypress-react-unit-test-46g6#component-cleans-up-on-unmount)
 - J. B. Rainsberger: [Integrated Tests Are A Scam](https://www.youtube.com/watch?v=VDfX44fZoMc)
+- Stefano Magni: [From unreadable React Component Tests to simple, stupid ones](https://dev.to/noriste/from-unreadable-react-component-tests-to-simple-stupid-ones-3ge6)
 
 
 ## Additional courses
