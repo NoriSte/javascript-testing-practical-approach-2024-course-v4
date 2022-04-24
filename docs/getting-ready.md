@@ -24,5 +24,5 @@ Please note: it should work fine on Windows too.
 ## Environment
 
 Requirements
-- Node.js 14.8.0
-- NPM 6.14.0
+- Node.js 14.8.0+
+- NPM 6.14.0+
