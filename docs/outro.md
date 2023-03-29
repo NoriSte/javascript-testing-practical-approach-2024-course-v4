@@ -10,6 +10,7 @@
 - Mobile (through changing user-agent) testing
 - Mock Service Worker
 - Cypress Dashboard
+- Playwright
 
 
 ## Some more testing rules
