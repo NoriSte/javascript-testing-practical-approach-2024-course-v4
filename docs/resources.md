@@ -25,6 +25,8 @@
 - Gleb Bahmutov: [12 Recipes for testing React applications using cypress-react-unit-test](https://dev.to/bahmutov/12-recipes-for-testing-react-applications-using-cypress-react-unit-test-46g6#component-cleans-up-on-unmount)
 - J. B. Rainsberger: [Integrated Tests Are A Scam](https://www.youtube.com/watch?v=VDfX44fZoMc)
 - Stefano Magni: [From unreadable React Component Tests to simple, stupid ones](https://dev.to/noriste/from-unreadable-react-component-tests-to-simple-stupid-ones-3ge6)
+- Stefano Magni: [My take on Snapshot Testing](https://dev.to/noriste/my-take-on-snapshot-testing-19k6)
+- Stefano Magni: [One long E2E test or small, independent, ones?](https://dev.to/noriste/one-long-e2e-test-or-small-independent-ones-33ao)
 
 
 ## Additional courses
@@ -38,5 +40,5 @@
 - [Cypress documentation](https://docs.cypress.io/guides/overview/why-cypress.html)
 - Toast UI: [Pragmatic Front-End Testing Strategies](https://medium.com/@toastui/pragmatic-front-end-testing-strategies-1-4a969ab09453)
 - Yoni Goldberg: [JavaScript & Node.js Testing Best Practices](https://github.com/goldbergyoni/javascript-testing-best-practices)
-- Yoni Goldberg: [JavaScript Testing A-Z](https://github.com/goldbergyoni/javascript-testing-a-to-z) (still in private mode at the time of writing)
+- Yoni Goldberg: [JavaScript Testing A-Z](https://github.com/goldbergyoni/javascript-testing-a-to-z)
 - Stefano Magni: [UI Testing Best Practices](https://github.com/NoriSte/ui-testing-best-practices)
