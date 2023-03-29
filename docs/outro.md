@@ -8,6 +8,8 @@
 - Snapshot testing
 - Cross-browser tests
 - Mobile (through changing user-agent) testing
+- Mock Service Worker
+- Cypress Dashboard
 
 
 ## Some more testing rules
