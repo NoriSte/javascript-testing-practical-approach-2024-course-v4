@@ -27,7 +27,8 @@ beforeEach(() => {
 })
 
 context('The home page', () => {
-  it('Should work', () => {
+  // Skipped until implemented
+  it.skip('Should work', () => {
     cy.visitAuthenticated('/')
 
     cy.findByText('No articles are here... yet.').should('be.visible')

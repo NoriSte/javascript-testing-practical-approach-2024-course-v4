@@ -22,7 +22,8 @@ context('The home page', () => {
     // ...
   })
 
-  it('Should work', () => {
+  // Skipped until implemented
+  it.skip('Should work', () => {
     cy.findByText('No articles are here... yet.').should('be.visible')
   })
 })
