@@ -10,6 +10,8 @@
     "test:everything": "npm run realworld:cy && npm run run:exercises",
     "// CYPRESS ///////////": "",
     "cy:open": "cypress open",
+    "cy:open:e2e": "cypress open --e2e",
+    "cy:open:component": "cypress open --component",
     "cy:run": "cypress run",
     "cy:run:component": "cypress run --component",
     "// REALWORLD ///////////": "",
