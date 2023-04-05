@@ -4,12 +4,12 @@
 
 2. add some scripts to the package.json
 ```json
-"cy:open":"cypress open",
-"cy:run":"cypress run"
+"cy:open:e2e": "cypress open --e2e",
+"cy:run": "cypress run",
 ```
-3. delete cypress/integration/examples
+3. delete cypress/e2e/examples
 
-4. create a smoke test: create a `cypres/integration/smoke.spec.js` file containing the following content code
+4. create a smoke test: create a `cypress/e2e/smoke.spec.js` file containing the following content code
   ```js
   /// <reference types="Cypress" />
 
@@ -20,7 +20,7 @@
   });
   ```
 
-5. edit the `cypress.json` adding the baseUrl (`"baseUrl": "http://localhost:<YOUR_PORT>",`)
+5. edit the `cypress.config.js` adding the baseUrl (`"baseUrl": "http://localhost:<YOUR_PORT>",`)
 
 6. add the `test` script to the package.json
   ```json
@@ -28,5 +28,5 @@
   ```
 
 That's it! You're ready to:
-- launch `$ npm run cy:open` that allows to use Cypress locally
+- launch `$ npm run cy:open:e2e` that allows to use Cypress locally
 - launch `$ npm test` that allows to start the application and test it in CI pipelines
