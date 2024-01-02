@@ -4,7 +4,7 @@
 
 ## Description
 
-This is the [reference repository](https://github.com/NoriSte/javascript-testing-practical-approach-2021-course-v3) with all the contents and the examples of the "Javascript Testing, a Practical Approach" course.
+This is the [reference repository](https://github.com/NoriSte/javascript-testing-practical-approach-2021-course-v4) with all the contents and the examples of the "Javascript Testing, a Practical Approach" course.
 
 The course starts from the peak of the testing pyramid and goes down instead of following the "standard" testing path.
 
@@ -49,6 +49,4 @@ I wrote a big [UI Testing Best Practices](https://github.com/NoriSte/ui-testing-
 
 ## Changes compared to the previous version of the course
 
-- Upgrade to Cypress 9
-- Split component tests
-- Remove cy-run-record
+- Support PlayWright
