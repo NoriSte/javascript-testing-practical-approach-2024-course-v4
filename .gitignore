@@ -3,3 +3,9 @@ cypress/videos
 yarn.lock
 package-lock.json
 .DS_Store
+
+# Automatically added by Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
