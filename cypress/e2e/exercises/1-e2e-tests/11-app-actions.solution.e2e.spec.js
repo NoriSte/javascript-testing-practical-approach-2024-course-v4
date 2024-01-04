@@ -13,7 +13,7 @@
 Cypress.Commands.add('register', { prevSubject: 'optional' }, function (_subject) {
   cy.visit('/register')
 
-  const random = Math.round(Math.random() * 1000000)
+  const random = Math.round(Math.random() * 1_000_000)
   const credentials = {
     username: `foo${random}`,
     email: `foo${random}@bar.com`,

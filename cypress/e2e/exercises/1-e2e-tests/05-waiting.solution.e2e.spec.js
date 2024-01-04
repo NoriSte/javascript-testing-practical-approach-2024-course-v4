@@ -28,13 +28,13 @@ context('The sign up page', () => {
   })
 
   it('Should allow registering and redirects the user to the home page', () => {
-    const random = Math.round(Math.random() * 1000000)
+    const random = Math.round(Math.random() * 1_000_000)
 
     cy.get('.form-control').eq(0).type(`foo${random}`)
     cy.get('.form-control').eq(1).type(`foo${random}@bar.com`)
     cy.get('.form-control').eq(2).type('bazbazbaz')
 
-    cy.intercept('POST', '**/api.realworld.io/api/users').as('signup-request')
+    cy.intercept('POST', 'https://conduit.productionready.io/api/users').as('signup-request')
 
     cy.get('button').click()
     cy.wait('@signup-request')
@@ -43,7 +43,7 @@ context('The sign up page', () => {
   })
 
   it('Playground: avoid hard coding the server host', () => {
-    const random = Math.round(Math.random() * 1000000)
+    const random = Math.round(Math.random() * 1_000_000)
 
     cy.get('.form-control').eq(0).type(`foo${random}`)
     cy.get('.form-control').eq(1).type(`foo${random}@bar.com`)

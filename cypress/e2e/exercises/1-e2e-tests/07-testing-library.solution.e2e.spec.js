@@ -20,7 +20,7 @@ context('The sign up page', () => {
   })
 
   it('Should allow registering and redirects the user to the home page', () => {
-    const random = Math.round(Math.random() * 1000000)
+    const random = Math.round(Math.random() * 1_000_000)
 
     // retrieve elements from the page the same way the user does guarantees the highest possible
     // confidence
@@ -40,7 +40,7 @@ context('The sign up page', () => {
   })
 
   it('Playground: retrieve button by role', () => {
-    const random = Math.round(Math.random() * 1000000)
+    const random = Math.round(Math.random() * 1_000_000)
 
     cy.findByPlaceholderText('Username').type(`foo${random}`)
     cy.findByPlaceholderText('Email').type(`foo${random}@bar.com`)

@@ -17,7 +17,7 @@ context('The sign up page', () => {
 
   // The test is skipped since the data-testid attributes are not yet added to the app
   it.skip('Should allow registering and redirects the user to the home page', () => {
-    const random = Math.round(Math.random() * 1000000)
+    const random = Math.round(Math.random() * 1_000_000)
 
     // data-testid selectors are more resilient compared to classes, ids, etc.
     cy.get('[data-testid=username]').type(`foo${random}`)

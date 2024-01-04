@@ -21,7 +21,7 @@ context('The sign up page', () => {
   })
 
   it('Should allow registering and redirects the user to the home page', () => {
-    const random = Math.round(Math.random() * 1000000)
+    const random = Math.round(Math.random() * 1_000_000)
 
     cy.findByPlaceholderText('Username').type(`foo${random}`)
     cy.findByPlaceholderText('Email').type(`foo${random}@bar.com`)
@@ -46,7 +46,7 @@ context('The sign up page', () => {
   })
 
   it('Playground: assert about the response status', () => {
-    const random = Math.round(Math.random() * 1000000)
+    const random = Math.round(Math.random() * 1_000_000)
 
     cy.findByPlaceholderText('Username').type(`foo${random}`)
     cy.findByPlaceholderText('Email').type(`foo${random}@bar.com`)

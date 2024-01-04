@@ -37,7 +37,7 @@ context('The sign up page', () => {
   })
 
   it('Should allow registering and redirects the user to the home page', () => {
-    const random = Math.round(Math.random() * 1000000)
+    const random = Math.round(Math.random() * 1_000_000)
 
     // this is an E2E test, hence the back-end is a real one. The same user can't be registered more
     // than once, we need to generate random users
@@ -54,7 +54,7 @@ context('The sign up page', () => {
   })
 
   it('Playground: avoid unnecessary timeout', function () {
-    const random = Math.round(Math.random() * 1000000)
+    const random = Math.round(Math.random() * 1_000_000)
 
     cy.get('.form-control').eq(0).type(`foo${random}`)
     cy.get('.form-control').eq(1).type(`foo${random}@bar.com`)
