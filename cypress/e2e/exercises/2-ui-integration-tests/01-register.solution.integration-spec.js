@@ -20,7 +20,7 @@ context('The sign up page', () => {
   beforeEach(() => {
     // adapt the viewport, allows the instructor to have more vertical windows when sharing the screen
     cy.viewport(600, 900)
-    cy.visit('/register')
+    cy.visit('/#/register')
   })
 
   it('Should allow registering and redirects the user to the home page', () => {
@@ -37,10 +37,10 @@ context('The sign up page', () => {
       headers,
     }).as('signup-request')
     cy.intercept('GET', '**/api/tags', { body: { tags: [] }, headers }).as('tags-request')
-    cy.intercept('GET', '**/api/articles/feed**', {
+    cy.intercept('GET', '**/api/articles**', {
       body: { articles: [], articlesCount: 0 },
       headers,
-    }).as('feed-request')
+    }).as('articles-request')
 
     cy.findByPlaceholderText('Username').type('Tester', { delay: 0 })
     cy.findByPlaceholderText('Email').type('user@realworld.io', { delay: 0 })
@@ -60,7 +60,7 @@ context('The sign up page', () => {
     })
 
     // the home page performs more than one request
-    cy.wait(['@tags-request', '@feed-request'])
+    cy.wait(['@tags-request', '@articles-request'])
 
     cy.findByText('No articles are here... yet.').should('be.visible')
   })

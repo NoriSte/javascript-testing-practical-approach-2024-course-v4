@@ -24,7 +24,7 @@ const noLog = { log: false }
 Cypress.Commands.add('register', { prevSubject: 'optional' }, function (_subject) {
   cy.log('**Automatic registration start**')
 
-  cy.visit('/register', noLog)
+  cy.visit('/#/register', noLog)
 
   const random = Math.round(Math.random() * 1_000_000)
 
@@ -63,6 +63,9 @@ Cypress.Commands.add('register', { prevSubject: 'optional' }, function (_subject
     expect(responseBody.user).to.have.property('token').and.to.be.a('string').and.not.to.be.empty
   })
 
+  // a full reload is needed to get the user authenticated
+  cy.reload()
+
   cy.findByText('No articles are here... yet.', { log: false }).should('be.visible')
 
   cy.log('**Automatic registration success**')
@@ -77,6 +80,6 @@ context('The New Post page', () => {
   it('Should get the user registered', () => {
     cy.register()
     cy.visit('/editor')
-    cy.findByText('New Post').should('be.visible')
+    cy.findByText('New Article').should('be.visible')
   })
 })

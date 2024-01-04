@@ -22,7 +22,7 @@ context('The sign up page', () => {
   })
 
   it('Should allow typing into the input field', () => {
-    cy.visit('/register')
+    cy.visit('/#/register')
 
     // `cy.get` accepts all DOM selectors plus everything offered by jQuery
     // you can type faster by passing options to cy.type
@@ -31,7 +31,7 @@ context('The sign up page', () => {
 
   // not a useful test, just for fun
   it('Playground: setting the input value without leveraging cy.type ', () => {
-    cy.visit('/register')
+    cy.visit('/#/register')
 
     cy.get('.form-control')
       .eq(0)

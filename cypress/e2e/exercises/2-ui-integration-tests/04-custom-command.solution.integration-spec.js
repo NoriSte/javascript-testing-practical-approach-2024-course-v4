@@ -25,13 +25,13 @@ Cypress.Commands.add('visitAuthenticated', { prevSubject: 'optional' }, function
     .should(
       user => expect(user).to.have.property('token').and.to.be.a('string').and.not.to.be.empty,
     )
-    .then(user => localStorage.setItem('jwt', user.token))
+    .then(user => localStorage.setItem('jwtToken', user.token))
 
   cy.intercept('GET', '**/api/user', { fixture: 'private/users/user', headers }).as('user-request')
   cy.visit(path)
   cy.wait('@user-request')
 
-  cy.findByText('New Post').should('be.visible')
+  cy.findByText('New Article').should('be.visible')
 })
 
 beforeEach(() => {
@@ -60,6 +60,6 @@ context('The home page', () => {
 context('The create new post page', () => {
   it('Should work', () => {
     cy.visitAuthenticated('/editor')
-    cy.findByText('New Post').should('be.visible')
+    cy.findByText('New Article').should('be.visible')
   })
 })

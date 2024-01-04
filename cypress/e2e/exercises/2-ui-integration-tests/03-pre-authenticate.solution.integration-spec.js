@@ -17,7 +17,7 @@ context('The home page', () => {
   beforeEach(() => {
     // adapt the viewport, allows the instructor to have more vertical windows when sharing the screen
     cy.viewport(600, 900)
-    cy.visit('/register')
+    cy.visit('/#/register')
 
     // set up the jwt leveraging the fixture
     cy.fixture('private/users/signup')
@@ -26,7 +26,7 @@ context('The home page', () => {
       .should(
         user => expect(user).to.have.property('token').and.to.be.a('string').and.not.to.be.empty,
       )
-      .then(user => localStorage.setItem('jwt', user.token))
+      .then(user => localStorage.setItem('jwtToken', user.token))
 
     cy.intercept('GET', '**/api/user', { fixture: 'private/users/user', headers }).as(
       'user-request',

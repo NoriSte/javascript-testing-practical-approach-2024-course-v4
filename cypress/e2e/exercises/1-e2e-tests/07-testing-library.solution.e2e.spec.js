@@ -16,7 +16,7 @@ context('The sign up page', () => {
   beforeEach(() => {
     // adapt the viewport, allows the instructor to have more vertical windows when sharing the screen
     cy.viewport(600, 900)
-    cy.visit('/register')
+    cy.visit('/#/register')
   })
 
   it('Should allow registering and redirects the user to the home page', () => {
@@ -33,6 +33,9 @@ context('The sign up page', () => {
     cy.get('form').within(() => cy.findByText('Sign up').click())
 
     cy.wait('@signup-request')
+
+    // a full reload is needed to get the user authenticated
+    cy.reload()
 
     // from a user perspective, asserting about the content of the page is better than checking the
     // URL (because the redirect could happen but the page could be blank)
@@ -51,6 +54,9 @@ context('The sign up page', () => {
     cy.findByRole('button', { name: 'Sign up' }).click()
 
     cy.wait('@signup-request')
+
+    // a full reload is needed to get the user authenticated
+    cy.reload()
 
     cy.findByText('No articles are here... yet.').should('be.visible')
   })

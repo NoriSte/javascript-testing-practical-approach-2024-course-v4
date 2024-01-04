@@ -31,13 +31,13 @@ context('The New Post page', () => {
   it.skip('Should get the user registered', () => {
     cy.register(credentials.username, credentials.email, credentials.password)
     cy.visit('/editor')
-    cy.findByText('New Post').should('be.visible')
+    cy.findByText('New Article').should('be.visible')
   })
 
   // Skipped until implemented
   it.skip('Should get the user registered (leveraging the previous user)', () => {
     cy.register(credentials.username, credentials.email, credentials.password)
     cy.visit('/editor')
-    cy.findByText('New Post').should('be.visible')
+    cy.findByText('New Article').should('be.visible')
   })
 })

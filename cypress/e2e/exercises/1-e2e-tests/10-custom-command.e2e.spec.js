@@ -35,6 +35,6 @@ context('The New Post page', () => {
   it.skip('Should get the user registered', () => {
     cy.register()
     cy.visit('/editor')
-    cy.findByText('New Post').should('be.visible')
+    cy.findByText('New Article').should('be.visible')
   })
 })

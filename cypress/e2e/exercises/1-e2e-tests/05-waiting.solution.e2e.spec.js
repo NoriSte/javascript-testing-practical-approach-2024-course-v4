@@ -24,7 +24,7 @@ context('The sign up page', () => {
   beforeEach(() => {
     // adapt the viewport, allows the instructor to have more vertical windows when sharing the screen
     cy.viewport(600, 900)
-    cy.visit('/register')
+    cy.visit('/#/register')
   })
 
   it('Should allow registering and redirects the user to the home page', () => {
@@ -34,7 +34,7 @@ context('The sign up page', () => {
     cy.get('.form-control').eq(1).type(`foo${random}@bar.com`)
     cy.get('.form-control').eq(2).type('bazbazbaz')
 
-    cy.intercept('POST', 'https://conduit.productionready.io/api/users').as('signup-request')
+    cy.intercept('POST', 'https://api.realworld.io/api/users').as('signup-request')
 
     cy.get('button').click()
     cy.wait('@signup-request')

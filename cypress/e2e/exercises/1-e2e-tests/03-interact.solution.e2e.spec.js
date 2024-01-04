@@ -23,7 +23,7 @@ context('The sign up page', () => {
   beforeEach(() => {
     // adapt the viewport, allows the instructor to have more vertical windows when sharing the screen
     cy.viewport(600, 900)
-    cy.visit('/register')
+    cy.visit('/#/register')
   })
 
   it('Should allow typing into the input fields', () => {
@@ -33,7 +33,7 @@ context('The sign up page', () => {
   })
 
   it('Playground: limit the scope of cy.get by running it within the form', () => {
-    cy.visit('/register')
+    cy.visit('/#/register')
 
     // within restricts the cy.get boundaries
     cy.get('form').within(() => {

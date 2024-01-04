@@ -22,12 +22,12 @@ Cypress.Commands.add('register', { prevSubject: 'optional' }, function (_subject
     // please note: cy.log accepts markdown too
     cy.log('Try to reuse jwt token 🤞')
     // set the token
-    localStorage.setItem('jwt', previousJwt)
+    localStorage.setItem('jwtToken', previousJwt)
 
     cy.visit('/')
 
     // use the 'New Post' string to detect if the user is authenticated or not
-    cy.findByText('New Post').should('be.visible')
+    cy.findByText('New Article').should('be.visible')
 
     // the user has been already registered and it's logged in
     // yield the credentials for te next command
@@ -50,7 +50,7 @@ Cypress.Commands.add('register', { prevSubject: 'optional' }, function (_subject
     password: 'bazbazbaz',
   }
   cy.intercept('POST', '**/api.realworld.io/api/users').as('signup-request')
-  cy.visit('/register')
+  cy.visit('/#/register')
   cy.window().its('appActions').invoke('signup', credentials)
   cy.wait('@signup-request').then(_interception => {
     // ... all the payload assertions are skipped for brevity...
@@ -59,7 +59,7 @@ Cypress.Commands.add('register', { prevSubject: 'optional' }, function (_subject
   // ------------------------------
   // wait until the localStorage token is saved
   cy.wrap(localStorage)
-    .its('jwt')
+    .its('jwtToken')
     .should(jwt => expect(jwt).to.be.a('string').and.not.to.be.empty)
     .then(jwt => {
       // store the token and the credentials
@@ -83,12 +83,12 @@ context('The New Post page', () => {
     })
 
     cy.visit('/editor')
-    cy.findByText('New Post').should('be.visible')
+    cy.findByText('New Article').should('be.visible')
   })
 
   it('Should get the user registered (leveraging the previous user)', () => {
     cy.register()
     cy.visit('/editor')
-    cy.findByText('New Post').should('be.visible')
+    cy.findByText('New Article').should('be.visible')
   })
 })

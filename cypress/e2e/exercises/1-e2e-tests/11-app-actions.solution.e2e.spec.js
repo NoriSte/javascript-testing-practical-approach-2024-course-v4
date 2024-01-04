@@ -11,7 +11,7 @@
  */
 
 Cypress.Commands.add('register', { prevSubject: 'optional' }, function (_subject) {
-  cy.visit('/register')
+  cy.visit('/#/register')
 
   const random = Math.round(Math.random() * 1_000_000)
   const credentials = {
@@ -28,7 +28,9 @@ Cypress.Commands.add('register', { prevSubject: 'optional' }, function (_subject
     // ... all the payload assertions are skipped for brevity...
   })
 
-  cy.findByText('New Post', { timeout: 10000 }).should('be.visible')
+  cy.reload()
+
+  cy.findByText('New Article', { timeout: 10000 }).should('be.visible')
 })
 
 context('The New Post page', () => {
@@ -40,6 +42,6 @@ context('The New Post page', () => {
   it('Should get the user registered', () => {
     cy.register()
     cy.visit('/editor')
-    cy.findByText('New Post').should('be.visible')
+    cy.findByText('New Article').should('be.visible')
   })
 })

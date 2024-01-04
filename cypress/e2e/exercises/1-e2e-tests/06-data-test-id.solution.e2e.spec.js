@@ -12,7 +12,7 @@ context('The sign up page', () => {
   beforeEach(() => {
     // adapt the viewport, allows the instructor to have more vertical windows when sharing the screen
     cy.viewport(600, 900)
-    cy.visit('/register')
+    cy.visit('/#/register')
   })
 
   // The test is skipped since the data-testid attributes are not yet added to the app
