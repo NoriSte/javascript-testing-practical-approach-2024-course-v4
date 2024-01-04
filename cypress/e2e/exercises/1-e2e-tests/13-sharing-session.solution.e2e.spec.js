@@ -34,7 +34,7 @@ Cypress.Commands.add('register', function (username, email, password) {
 })
 
 context('The New Post page', () => {
-  const random = Math.round(Math.random() * 1000000)
+  const random = Math.round(Math.random() * 1_000_000)
   const credentials = {
     username: `foo${random}`,
     email: `foo${random}@bar.com`,

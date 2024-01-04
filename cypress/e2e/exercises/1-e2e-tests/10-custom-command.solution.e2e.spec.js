@@ -26,7 +26,7 @@ Cypress.Commands.add('register', { prevSubject: 'optional' }, function (_subject
 
   cy.visit('/register', noLog)
 
-  const random = Math.round(Math.random() * 1000000)
+  const random = Math.round(Math.random() * 1_000_000)
 
   cy.findByPlaceholderText('Username', noLog).type(`foo${random}`, {
     delay: 0,
