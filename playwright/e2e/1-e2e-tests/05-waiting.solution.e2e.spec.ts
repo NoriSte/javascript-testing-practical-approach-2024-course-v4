@@ -30,7 +30,7 @@ test.use({
 
 test.describe("The sign up page", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/register");
+    await page.goto("/#/register");
   });
 
   test("Should allow registering and redirects the user to the home page", async ({
@@ -44,13 +44,13 @@ test.describe("The sign up page", () => {
 
     // Please note: no `await` here!
     const signupRequestPromise = page.waitForRequest(
-      "https://conduit.productionready.io/api/users"
+      "https://api.realworld.io/api/users"
     );
 
     await page.locator("button").click();
     await signupRequestPromise;
 
-    await page.waitForURL("/", { timeout: 1000 });
+    await page.waitForURL("/#/", { timeout: 1000 });
   });
 
   test("Playground: avoid hard coding the server host", async ({ page }) => {
@@ -66,6 +66,6 @@ test.describe("The sign up page", () => {
     await page.locator("button").click();
     await signupRequestPromise;
 
-    await page.waitForURL("/");
+    await page.waitForURL("/#/");
   });
 });

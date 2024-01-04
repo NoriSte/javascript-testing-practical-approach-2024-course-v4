@@ -34,7 +34,7 @@ test.use({
 
 test.describe("The sign up page", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/register");
+    await page.goto("/#/register");
   });
 
   test("Should allow registering and redirects the user to the home page", async ({
@@ -50,7 +50,7 @@ test.describe("The sign up page", () => {
 
     await page.waitForTimeout(10_000);
 
-    expect(await page.evaluate("location.pathname")).toBe("/");
+    expect(await page.evaluate("location.hash")).toBe("#/");
   });
 
   test("Playground: avoid unnecessary timeout", async ({ page }) => {
@@ -62,6 +62,6 @@ test.describe("The sign up page", () => {
 
     await page.locator("button").click();
 
-    await page.waitForURL("/", { timeout: 2_000 });
+    await page.waitForURL("/#/", { timeout: 2_000 });
   });
 });

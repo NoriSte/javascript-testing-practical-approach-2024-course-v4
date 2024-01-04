@@ -18,7 +18,7 @@ test.use({
 
 test.describe("The sign up page", () => {
   test("Should allow typing into the input field", async ({ page }) => {
-    await page.goto("/register");
+    await page.goto("/#/register");
 
     // `page.locator` accepts all DOM selectors
     await page.locator(".form-control").first().fill("Foo");

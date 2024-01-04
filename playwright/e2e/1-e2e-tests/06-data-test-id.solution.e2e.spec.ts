@@ -15,7 +15,7 @@ test.use({
 
 test.describe("The sign up page", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/register");
+    await page.goto("/#/register");
   });
 
   test("Should allow registering and redirects the user to the home page", async ({
@@ -33,6 +33,6 @@ test.describe("The sign up page", () => {
     await page.getByTestId("signup-button").click();
     await signupRequestPromise;
 
-    await page.waitForURL("/", { timeout: 1000 });
+    await page.waitForURL("/#/", { timeout: 1000 });
   });
 });
