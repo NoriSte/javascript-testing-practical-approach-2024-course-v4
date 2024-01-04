@@ -45,7 +45,7 @@ context('The sign up page', () => {
       })
 
       // assert about the response status code
-      expect(interception.response.statusCode, 'Response status').to.eq(200)
+      expect(interception.response.statusCode, 'Response status').to.eq(201)
 
       // assert about the response payload
       const responseBody = interception.response.body
