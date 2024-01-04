@@ -17,7 +17,7 @@ context('The sign up page', () => {
   beforeEach(() => {
     // adapt the viewport, allows the instructor to have more vertical windows when sharing the screen
     cy.viewport(600, 900)
-    cy.visit('/register')
+    cy.visit('/#/register')
   })
 
   it('Should allow registering and redirects the user to the home page', () => {
@@ -41,6 +41,9 @@ context('The sign up page', () => {
           password: 'bazbazbaz',
         },
       })
+
+    // a full reload is needed to get the user authenticated
+    cy.reload()
 
     cy.findByText('No articles are here... yet.').should('be.visible')
   })
@@ -69,6 +72,9 @@ context('The sign up page', () => {
       // assert about the response status code
       expect(interception.response.statusCode, 'Response status').to.eq(201)
     })
+
+    // a full reload is needed to get the user authenticated
+    cy.reload()
 
     cy.findByText('No articles are here... yet.').should('be.visible')
   })
