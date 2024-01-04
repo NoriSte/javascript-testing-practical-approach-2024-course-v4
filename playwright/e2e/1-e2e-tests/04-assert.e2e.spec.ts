@@ -34,7 +34,7 @@ test.use({
 
 test.describe("The sign up page", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/register");
+    await page.goto("/#/register");
   });
 
   test("Should allow registering and redirects the user to the home page", async ({

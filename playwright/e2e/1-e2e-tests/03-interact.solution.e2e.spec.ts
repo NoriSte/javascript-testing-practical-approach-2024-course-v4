@@ -26,7 +26,7 @@ test.use({
 
 test.describe("The sign up page", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/register");
+    await page.goto("/#/register");
   });
 
   test("Should allow typing into the input fields", async ({ page }) => {
