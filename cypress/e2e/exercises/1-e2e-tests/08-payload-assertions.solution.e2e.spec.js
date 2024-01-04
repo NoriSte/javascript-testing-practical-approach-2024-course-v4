@@ -67,7 +67,7 @@ context('The sign up page', () => {
       })
 
       // assert about the response status code
-      expect(interception.response.statusCode, 'Response status').to.eq(200)
+      expect(interception.response.statusCode, 'Response status').to.eq(201)
     })
 
     cy.findByText('No articles are here... yet.').should('be.visible')
