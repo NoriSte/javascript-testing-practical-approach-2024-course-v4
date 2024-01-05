@@ -5,9 +5,9 @@ import { useRecoilValue } from 'recoil';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-import Comment from '../components/article/Comment';
+import Comment from '../components/Article/Comment';
 import ArticleTag from '../components/tag/ArticleTag';
-import ArticleAction from '../components/article/ArticleAction';
+import ArticleAction from '../components/Article/ArticleAction';
 import Loading from '../components/common/Loading';
 
 import { getArticle, deleteArticle } from '../api/article';
