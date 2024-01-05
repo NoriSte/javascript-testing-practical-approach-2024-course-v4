@@ -1,4 +1,4 @@
-import { test } from "@playwright/test";
+import { test, expect } from "@playwright/test";
 
 /**
  * Main goals
@@ -20,6 +20,8 @@ test.use({
 test.describe("The New Post page", () => {
   test("Should get the user registered", async ({ page }) => {
     await page.goto("/#/editor");
-    await page.getByRole("button", { name: "New Article" }).isVisible();
+    await expect(
+      page.getByRole("link", { name: " New Article" })
+    ).toBeVisible();
   });
 });
