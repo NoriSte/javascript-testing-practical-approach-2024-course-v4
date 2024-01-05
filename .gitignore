@@ -15,3 +15,7 @@ playwright/e2e/2-authenticated-e2e-tests/.auth
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
