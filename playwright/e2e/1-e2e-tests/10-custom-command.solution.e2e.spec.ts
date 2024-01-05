@@ -81,7 +81,9 @@ const register = async ({ page, step }) => {
   await page.reload();
 
   await step("Check if the user is logged in", async () => {
-    await page.getByText("New Article").isVisible();
+    await expect(
+      page.getByRole("link", { name: " New Article" })
+    ).toBeVisible();
   });
 };
 

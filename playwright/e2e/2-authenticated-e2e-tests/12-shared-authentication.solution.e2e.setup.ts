@@ -1,4 +1,4 @@
-import { test as setup } from "@playwright/test";
+import { test as setup, expect } from "@playwright/test";
 
 /**
  * Main goals
@@ -12,8 +12,7 @@ import { test as setup } from "@playwright/test";
  * - Deterministic tests means also that you should not rely on their execution order
  */
 
-const authFile =
-  "playwright/e2e/1-e2e-tests/12-shared-authentication/.auth/user.json";
+const authFile = "playwright/e2e/2-authenticated-e2e-tests/.auth/user.json";
 
 setup("authenticate", async ({ page }) => {
   // Start of authentication steps.
@@ -48,7 +47,9 @@ setup("authenticate", async ({ page }) => {
   });
   await page.reload();
   await setup.step("Check if the user is logged in", async () => {
-    await page.getByText("New Article").isVisible();
+    await expect(
+      page.getByRole("link", { name: " New Article" })
+    ).toBeVisible();
   });
   // End of authentication steps.
 

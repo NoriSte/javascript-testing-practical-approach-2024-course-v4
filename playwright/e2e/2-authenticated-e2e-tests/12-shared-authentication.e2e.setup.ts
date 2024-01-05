@@ -12,8 +12,7 @@ import { test as setup } from "@playwright/test";
  * - Deterministic tests means also that you should not rely on their execution order
  */
 
-const authFile =
-  "playwright/e2e/1-e2e-tests/12-shared-authentication/.auth/user.json";
+const authFile = "playwright/e2e/2-authenticated-e2e-tests/.auth/user.json";
 
 setup("authenticate", async ({ page }) => {
   // ...
