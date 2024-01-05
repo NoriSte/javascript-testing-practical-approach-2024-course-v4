@@ -55,11 +55,16 @@ export default defineConfig({
       testMatch: /12-shared-authentication.solution\.e2e\.setup\.ts/,
     },
 
-    // Standard, non-authenticated browser
     {
       name: "chromium:frontend",
       use: { ...devices["Desktop Chrome"] },
       testMatch: /3-frontend-tests\/.*(test|spec).(ts)/,
+    },
+
+    {
+      name: "chromium:realworld",
+      use: { ...devices["Desktop Chrome"] },
+      testMatch: /realworld\/.*(test|spec).(ts)/,
     },
 
     /* Test against other browsers. */
