@@ -25,7 +25,7 @@
     "realworld:start": "npm run realworld:frontend:start",
     "realworld:frontend:start": "cd realworld/frontend && npm start",
     "realworld:cy": "npm run cy:run -- --spec \"cypress/e2e/realworld/**/*\"",
-    "realworld:pw": "npm run pw:e2e -- \"playwright/e2e/realworld/\"",
+    "realworld:pw": "npm run pw:e2e -- --project chromium:realworld",
     "// EXERCISES ///////////": "",
     "// TODO: add the PW ones ///////////": "",
     "run:exercises": "npm-run-all -s exercises:**",
