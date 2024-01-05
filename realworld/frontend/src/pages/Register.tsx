@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
@@ -57,6 +57,26 @@ const Register = () => {
     setDisabled(false);
   };
 
+  // App action for test purposes
+  const onRegisterRef = useRef(onRegister);
+  onRegisterRef.current = onRegister;
+  useEffect(() => {
+    const signup = ({ username, email, password }: typeof account) => {
+      setAccount({ username, email, password });
+
+      setTimeout(() => {
+        const event = new Event('submit');
+        // @ts-expect-error The event is just a mock, and onRegister just use preventDefault() at
+        // the time of writing this comment.
+        onRegisterRef.current(event);
+      }, 500);
+    };
+    // @ts-expect-error
+    window.appActions = window.appActions || {};
+    // @ts-expect-error
+    window.appActions.signup = signup;
+  }, []);
+
   useEffect(() => {
     if (isLoggedIn) navigate('/', { replace: true });
   }, [isLoggedIn, navigate]);
@@ -97,6 +117,7 @@ const Register = () => {
                     onChange={onChange}
                     disabled={disabled}
                     autoComplete="off"
+                    // data-testid="username"
                   />
                 </fieldset>
                 <fieldset className="form-group">
@@ -109,6 +130,7 @@ const Register = () => {
                     onChange={onChange}
                     disabled={disabled}
                     autoComplete="off"
+                    // data-testid="email"
                   />
                 </fieldset>
                 <fieldset className="form-group">
@@ -120,11 +142,13 @@ const Register = () => {
                     value={password}
                     onChange={onChange}
                     disabled={disabled}
+                    // data-testid="password"
                   />
                 </fieldset>
                 <button
                   className="btn btn-lg btn-primary pull-xs-right"
                   disabled={disabled}
+                  // data-testid="signup-button"
                 >
                   Sign up
                 </button>
