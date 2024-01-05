@@ -47,9 +47,7 @@ setup("authenticate", async ({ page }) => {
   });
   await page.reload();
   await setup.step("Check if the user is logged in", async () => {
-    await expect(
-      page.getByRole("link", { name: " New Article" })
-    ).toBeVisible();
+    await expect(page.getByRole("link", { name: "New Article" })).toBeVisible();
   });
   // End of authentication steps.
 
