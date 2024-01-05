@@ -32,9 +32,26 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    // Standard, non-authenticated browser
     {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
+    },
+
+    // Authenticated browser
+    {
+      name: "chromium-authenticated",
+      use: {
+        ...devices["Desktop Chrome"],
+        storageState:
+          "playwright/e2e/1-e2e-tests/12-shared-authentication/.auth/user.json",
+      },
+      dependencies: ["12-sharing-authentication"],
+      testMatch: /12-shared-authentication\/.*(test|spec).(ts)/,
+    },
+    {
+      name: "12-sharing-authentication",
+      testMatch: /12-sharing-authentication.solution\.e2e\.setup\.ts/,
     },
 
     /* Test against other browsers. */
