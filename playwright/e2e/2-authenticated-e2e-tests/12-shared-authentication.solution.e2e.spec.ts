@@ -20,8 +20,6 @@ test.use({
 test.describe("The New Post page", () => {
   test("Should get the user registered", async ({ page }) => {
     await page.goto("/#/editor");
-    await expect(
-      page.getByRole("link", { name: " New Article" })
-    ).toBeVisible();
+    await expect(page.getByRole("link", { name: "New Article" })).toBeVisible();
   });
 });
