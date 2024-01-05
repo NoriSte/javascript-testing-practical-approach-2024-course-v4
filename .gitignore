@@ -4,6 +4,8 @@ yarn.lock
 package-lock.json
 .DS_Store
 
+playwright/e2e/1-e2e-tests/12-shared-authentication/.auth
+
 # Automatically added by Playwright
 /test-results/
 /playwright-report/
