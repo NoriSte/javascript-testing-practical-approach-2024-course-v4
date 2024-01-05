@@ -43,6 +43,9 @@ test.describe("The sign up page", () => {
       },
     });
 
-    await page.getByText("No articles are here... yet.").isVisible();
+    await page.waitForURL("/#/");
+    await page.reload();
+
+    await expect(page.getByText("New Article")).toBeVisible();
   });
 });

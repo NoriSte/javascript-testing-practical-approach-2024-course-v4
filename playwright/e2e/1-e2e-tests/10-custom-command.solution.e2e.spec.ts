@@ -96,6 +96,6 @@ test.describe("The New Post page", () => {
   test("Should get the user registered", async ({ page }) => {
     await register({ page, step: test.step });
     await page.goto("/#/editor");
-    await page.getByRole("button", { name: "New Article" }).isVisible();
+    await expect(page.getByText("New Article")).toBeVisible();
   });
 });

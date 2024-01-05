@@ -83,7 +83,8 @@ test.describe("The sign up page", () => {
       "Response payload: token is not empty"
     ).not.toEqual("");
 
-    await page.getByText("No articles are here... yet.").isVisible();
+    await page.reload();
+    await expect(page.getByText("New Article")).toBeVisible();
   });
 
   test("Playground: group blocks with test.step", async ({ page }) => {
@@ -147,8 +148,9 @@ test.describe("The sign up page", () => {
       ).not.toEqual("");
     });
 
-    await test.step("Check the redirect", async () => {
-      await page.getByText("No articles are here... yet.").isVisible();
+    await test.step("Check the user is logged in", async () => {
+      await page.reload();
+      await expect(page.getByText("New Article")).toBeVisible();
     });
   });
 });

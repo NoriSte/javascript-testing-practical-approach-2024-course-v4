@@ -1,4 +1,4 @@
-import { test } from "@playwright/test";
+import { test, expect } from "@playwright/test";
 
 /**
  * Main goals
@@ -39,7 +39,10 @@ test.describe("The sign up page", () => {
     await page.locator("form").getByText("Sign up").click();
     await signupRequestPromise;
 
-    await page.getByText("No articles are here... yet.").isVisible();
+    await page.waitForURL("/#/");
+    await page.reload();
+
+    await expect(page.getByText("New Article")).toBeVisible();
   });
 
   test("Playground: retrieve button by role", async ({ page }) => {
@@ -55,6 +58,9 @@ test.describe("The sign up page", () => {
     await page.getByRole("button", { name: "Sign up" }).click();
     await signupRequestPromise;
 
-    await page.getByText("No articles are here... yet.").isVisible();
+    await page.waitForURL("/#/");
+    await page.reload();
+
+    await expect(page.getByText("New Article")).toBeVisible();
   });
 });
