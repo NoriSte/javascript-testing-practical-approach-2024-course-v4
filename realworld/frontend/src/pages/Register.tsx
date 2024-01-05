@@ -71,9 +71,9 @@ const Register = () => {
         onRegisterRef.current(event);
       }, 500);
     };
-    // @ts-expect-error
+    // @ts-expect-error The window object is not extended for the sake if this course
     window.appActions = window.appActions || {};
-    // @ts-expect-error
+    // @ts-expect-error The window object is not extended for the sake if this course
     window.appActions.signup = signup;
   }, []);
 
