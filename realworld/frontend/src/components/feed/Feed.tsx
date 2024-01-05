@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import ArticlePreview from '../article/ArticlePreview';
+import ArticlePreview from '../Article/ArticlePreview';
 import Loading from '../common/Loading';
 import Pagination from '../common/Pagination';
 
