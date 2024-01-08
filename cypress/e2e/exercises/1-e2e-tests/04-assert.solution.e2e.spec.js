@@ -50,7 +50,7 @@ context('The sign up page', () => {
     // waiting for the redirect to the home page
     cy.wait(10000)
 
-    cy.location().should(location => expect(location.pathname).to.eq('/'))
+    cy.location().should(location => expect(location.hash).to.eq('#/'))
   })
 
   it('Playground: avoid unnecessary timeout', function () {
@@ -64,7 +64,7 @@ context('The sign up page', () => {
 
     cy.location({ timeout: 10000 })
       // if `should` fails, it retries the previous, side-effects free, command
-      .should(location => expect(location.pathname).to.eq('/'))
+      .should(location => expect(location.hash).to.eq('#/'))
 
     // log the Cypress commands
     console.log(this.test.commands)

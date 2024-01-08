@@ -29,6 +29,6 @@ context('The sign up page', () => {
     cy.get('[data-testid=signup-button]').click()
     cy.wait('@signup-request')
 
-    cy.location().should(location => expect(location.pathname).to.eq('/'))
+    cy.location().should(location => expect(location.hash).to.eq('#/'))
   })
 })
