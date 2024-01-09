@@ -39,7 +39,7 @@
 - Incremental exercises
 - Exercises won't be easy for you, the harder they are, the more you learn
 
-## We use Cypress
+## We use Playwright
 
 - Easy debugging
 - Bornt only for UI tests

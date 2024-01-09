@@ -10,13 +10,17 @@ The course starts from the peak of the testing pyramid and goes down instead of 
 
 ## During the course
 The most important scripts are:
-- `$ npm run cy:open`: starts the Cypress UI
 - `$ npm run realworld:frontend:start`: starts the front-end project
+
+Then, one of the following
+1. `$ npm run cy:open`: starts the Cypress UI
+2. `$ npm run pw:e2e:ui`: starts the Playwright UI
 
 
 ## Table of contents
 
 In the "docs" folder there are:
+- The [Adding Playwright to an existing project](./docs/add-playwright.md) guide
 - The [Adding Cypress to an existing project](./docs/add-cypress.md) guide
 - The [Getting ready for the course](./docs/getting-ready.md) guide
 - The list of [Resources](./docs/resources.md)
