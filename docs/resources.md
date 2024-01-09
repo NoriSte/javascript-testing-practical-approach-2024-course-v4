@@ -1,8 +1,13 @@
 # Resources
 
+## Playwright Docs
+
+- [Playwright Docs](https://playwright.dev/docs)
+
 ## Cypress Docs
 
 - [E2E testing Best Practices](https://docs.cypress.io)
+
 ## Articles
 
 - Stefano Magni: [Test the request and response payloads](https://github.com/NoriSte/ui-testing-best-practices/blob/master/sections/server-communication-testing/test-request-and-response-payload.md)
@@ -27,6 +32,7 @@
 - Stefano Magni: [From unreadable React Component Tests to simple, stupid ones](https://dev.to/noriste/from-unreadable-react-component-tests-to-simple-stupid-ones-3ge6)
 - Stefano Magni: [My take on Snapshot Testing](https://dev.to/noriste/my-take-on-snapshot-testing-19k6)
 - Stefano Magni: [One long E2E test or small, independent, ones?](https://dev.to/noriste/one-long-e2e-test-or-small-independent-ones-33ao)
+- Stefano Magni: [Improving UI tests' code with debugging in mind](https://dev.to/noriste/improving-ui-testss-code-to-ease-debugging-them-later-2478)
 
 
 ## Additional courses

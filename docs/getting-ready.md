@@ -7,9 +7,16 @@ Are you ready for the course? Check it out by:
 - Launching `$ npm install`
 - Launching `$ npm run test:smoke`
 
-The above steps launch the front-end application, and Cypress. If you see something like
+The above steps launch the front-end application, Playwright, and Cypress. If you see something like
 
 ```shell
+Running 1 test using 1 worker
+  1 passed (3.7s)
+
+To open last HTML report run:
+
+  npx playwright show-report
+
       Spec                           Tests  Passing  Failing  Pending  Skipped
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ ✔  realworld/smoke.spec.js  00:01     1        1        -        -        - │
@@ -24,5 +31,5 @@ Please note: it should work fine on Windows too.
 ## Environment
 
 Requirements
-- Node.js 16.15.0+
+- Node.js 20+
 - NPM 8.11.0+
