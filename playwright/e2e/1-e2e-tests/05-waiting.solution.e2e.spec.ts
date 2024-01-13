@@ -43,12 +43,12 @@ test.describe("The sign up page", () => {
     await page.locator(".form-control").nth(2).fill("bazbazbaz");
 
     // Please note: no `await` here!
-    const signupRequestPromise = page.waitForRequest(
+    const signupResponsePromise = page.waitForResponse(
       "https://api.realworld.io/api/users"
     );
 
     await page.locator("button").click();
-    await signupRequestPromise;
+    await signupResponsePromise;
 
     await page.waitForURL("/#/", { timeout: 1000 });
   });
@@ -61,10 +61,10 @@ test.describe("The sign up page", () => {
     await page.locator(".form-control").nth(2).fill("bazbazbaz");
 
     // Please note: no `await` here!
-    const signupRequestPromise = page.waitForRequest("**/api/users");
+    const signupResponsePromise = page.waitForResponse("**/api/users");
 
     await page.locator("button").click();
-    await signupRequestPromise;
+    await signupResponsePromise;
 
     await page.waitForURL("/#/");
   });

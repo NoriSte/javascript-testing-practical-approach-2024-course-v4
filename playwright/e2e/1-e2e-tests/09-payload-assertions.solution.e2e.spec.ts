@@ -36,8 +36,6 @@ test.describe("The sign up page", () => {
     await page.getByPlaceholder("Email").fill(`foo${random}@bar.com`);
     await page.getByPlaceholder("Password").fill("bazbazbaz");
 
-    const signupRequestPromise = page.waitForRequest("**/api/users");
-
     // https://api.realworld.io/api/users goes 307 and redirects to https://api.realworld.io/api/users
     // hence we can't use request.response() to get the response
     const signupResponsePromise = page.waitForResponse(
@@ -47,8 +45,8 @@ test.describe("The sign up page", () => {
 
     await page.locator("form").getByText("Sign up").click();
 
-    const request = await signupRequestPromise;
-    const requestBody = request.postDataJSON();
+    const response = await signupResponsePromise;
+    const requestBody = response.request().postDataJSON();
 
     expect(requestBody).toEqual({
       user: {
@@ -58,7 +56,6 @@ test.describe("The sign up page", () => {
       },
     });
 
-    const response = await signupResponsePromise;
     const responseBody = await response.json();
 
     // assert about the response payload
@@ -96,8 +93,6 @@ test.describe("The sign up page", () => {
       await page.getByPlaceholder("Password").fill("bazbazbaz");
     });
 
-    const signupRequestPromise = page.waitForRequest("**/api/users");
-
     // https://api.realworld.io/api/users goes 307 and redirects to https://api.realworld.io/api/users
     // hence we can't use request.response() to get the response
     const signupResponsePromise = page.waitForResponse(
@@ -109,9 +104,9 @@ test.describe("The sign up page", () => {
       await page.locator("form").getByText("Sign up").click();
     });
 
-    await test.step("Assert about the request", async () => {
-      const request = await signupRequestPromise;
-      const requestBody = request.postDataJSON();
+    await test.step("Assert about the request and the response", async () => {
+      const response = await signupResponsePromise;
+      const requestBody = response.request().postDataJSON();
 
       expect(requestBody).toEqual({
         user: {
@@ -120,10 +115,7 @@ test.describe("The sign up page", () => {
           password: "bazbazbaz",
         },
       });
-    });
 
-    await test.step("Assert about the response", async () => {
-      const response = await signupResponsePromise;
       const responseBody = await response.json();
 
       expect(responseBody.user, "Response payload:  username").toHaveProperty(

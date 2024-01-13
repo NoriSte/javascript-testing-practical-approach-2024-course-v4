@@ -31,7 +31,7 @@ test.describe("The home page", () => {
 
     await page.goto("/#/register");
 
-    page.evaluate((token) => {
+    await page.evaluate((token) => {
       localStorage.setItem("jwtToken", token);
     }, signup.user.token);
 
@@ -48,8 +48,8 @@ test.describe("The home page", () => {
       async (route) => await route.fulfill({ json: emptyArticles })
     );
 
-    const tagsRequestPromise = page.waitForRequest("**/api/tags");
-    const articlesRequestPromise = page.waitForRequest(
+    const tagsResponsePromise = page.waitForResponse("**/api/tags");
+    const articlesResponsePromise = page.waitForResponse(
       "**/api/articles/feed**"
     );
     const userCheckResponsePromise = page.waitForResponse("**/api/user");
@@ -57,8 +57,8 @@ test.describe("The home page", () => {
     await page.reload();
     await page.goto("/#/");
 
-    await tagsRequestPromise;
-    await articlesRequestPromise;
+    await tagsResponsePromise;
+    await articlesResponsePromise;
     await userCheckResponsePromise;
   });
 
