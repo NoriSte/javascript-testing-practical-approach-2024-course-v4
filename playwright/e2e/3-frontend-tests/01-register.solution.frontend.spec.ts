@@ -75,7 +75,7 @@ test.describe("The sign up page", () => {
     await page.getByPlaceholder("Email").fill("user@realworld.io");
     await page.getByPlaceholder("Password").fill("mysupersecretpassword");
 
-    const signupRequestPromise = page.waitForRequest("**/api/users");
+    const signupResponsePromise = page.waitForResponse("**/api/users");
 
     const tagsResponsePromise = page.waitForResponse("**/api/tags");
     const articlesResponsePromise = page.waitForResponse(
@@ -85,8 +85,8 @@ test.describe("The sign up page", () => {
 
     await page.locator("form").getByText("Sign up").click();
 
-    const request = await signupRequestPromise;
-    const requestBody = request.postDataJSON();
+    const response = await signupResponsePromise;
+    const requestBody = response.request().postDataJSON();
 
     expect(requestBody).toEqual({
       user: {
@@ -96,7 +96,6 @@ test.describe("The sign up page", () => {
       },
     });
 
-    await request.response();
     await page.reload();
 
     await tagsResponsePromise;

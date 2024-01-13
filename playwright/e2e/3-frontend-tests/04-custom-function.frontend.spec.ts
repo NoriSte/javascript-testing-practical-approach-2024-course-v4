@@ -54,15 +54,15 @@ test.describe("The home page", () => {
       async (route) => await route.fulfill({ json: emptyArticles })
     );
 
-    const tagsRequestPromise = page.waitForRequest("**/api/tags");
-    const articlesRequestPromise = page.waitForRequest(
+    const tagsResponsePromise = page.waitForResponse("**/api/tags");
+    const articlesResponsePromise = page.waitForResponse(
       "**/api/articles/feed**"
     );
 
     await gotoAuthenticated("/#/", { page });
 
-    await tagsRequestPromise;
-    await articlesRequestPromise;
+    await tagsResponsePromise;
+    await articlesResponsePromise;
 
     await expect(page.getByText("No articles are here... yet.")).toBeVisible();
   });

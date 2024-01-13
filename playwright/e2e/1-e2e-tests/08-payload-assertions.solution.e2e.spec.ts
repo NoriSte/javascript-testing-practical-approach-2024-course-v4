@@ -28,12 +28,12 @@ test.describe("The sign up page", () => {
     await page.getByPlaceholder("Email").fill(`foo${random}@bar.com`);
     await page.getByPlaceholder("Password").fill("bazbazbaz");
 
-    const signupRequestPromise = page.waitForRequest("**/api/users");
+    const signupResponsePromise = page.waitForResponse("**/api/users");
 
     await page.locator("form").getByText("Sign up").click();
 
-    const request = await signupRequestPromise;
-    const requestBody = request.postDataJSON();
+    const response = await signupResponsePromise;
+    const requestBody = response.request().postDataJSON();
 
     expect(requestBody).toEqual({
       user: {

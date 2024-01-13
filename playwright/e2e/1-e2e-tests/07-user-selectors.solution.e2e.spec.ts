@@ -32,12 +32,12 @@ test.describe("The sign up page", () => {
     await page.getByPlaceholder("Password").fill("bazbazbaz");
 
     // Please note: no `await` here!
-    const signupRequestPromise = page.waitForRequest(
+    const signupResponsePromise = page.waitForResponse(
       "https://api.realworld.io/api/users"
     );
 
     await page.locator("form").getByText("Sign up").click();
-    await signupRequestPromise;
+    await signupResponsePromise;
 
     await page.waitForURL("/#/");
     await page.reload();
@@ -53,10 +53,10 @@ test.describe("The sign up page", () => {
     await page.getByPlaceholder("Password").fill("bazbazbaz");
 
     // Please note: no `await` here!
-    const signupRequestPromise = page.waitForRequest("**/api/users");
+    const signupResponsePromise = page.waitForResponse("**/api/users");
 
     await page.getByRole("button", { name: "Sign up" }).click();
-    await signupRequestPromise;
+    await signupResponsePromise;
 
     await page.waitForURL("/#/");
     await page.reload();

@@ -26,8 +26,6 @@ const register = async ({ page, step }) => {
     await page.getByPlaceholder("Password").fill("bazbazbaz");
   });
 
-  const signupRequestPromise = page.waitForRequest("**/api/users");
-
   // https://api.realworld.io/api/users goes 307 and redirects to https://api.realworld.io/api/users
   // hence we can't use request.response() to get the response
   const signupResponsePromise = page.waitForResponse(
@@ -39,9 +37,9 @@ const register = async ({ page, step }) => {
     await page.locator("form").getByText("Sign up").click();
   });
 
-  await step("Assert about the request", async () => {
-    const request = await signupRequestPromise;
-    const requestBody = request.postDataJSON();
+  await step("Assert about the request and the response", async () => {
+    const response = await signupResponsePromise;
+    const requestBody = response.request().postDataJSON();
 
     expect(requestBody).toEqual({
       user: {
@@ -50,10 +48,7 @@ const register = async ({ page, step }) => {
         password: "bazbazbaz",
       },
     });
-  });
 
-  await step("Assert about the response", async () => {
-    const response = await signupResponsePromise;
     const responseBody = await response.json();
 
     expect(responseBody.user, "Response payload:  username").toHaveProperty(

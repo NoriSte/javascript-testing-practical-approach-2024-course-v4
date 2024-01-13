@@ -28,10 +28,10 @@ test.describe("The sign up page", () => {
     await page.getByTestId("password").fill("bazbazbaz");
 
     // Please note: no `await` here!
-    const signupRequestPromise = page.waitForRequest("**/api/users");
+    const signupResponsePromise = page.waitForResponse("**/api/users");
 
     await page.getByTestId("signup-button").click();
-    await signupRequestPromise;
+    await signupResponsePromise;
 
     await page.waitForURL("/#/", { timeout: 1000 });
   });

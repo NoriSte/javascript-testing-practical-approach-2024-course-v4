@@ -29,7 +29,6 @@ setup("authenticate", async ({ page }) => {
       window.appActions.signup(credentials);
     }, credentials);
   });
-  const signupRequestPromise = page.waitForRequest("**/api/users");
   // https://api.realworld.io/api/users goes 307 and redirects to https://api.realworld.io/api/users
   // hence we can't use request.response() to get the response
   const signupResponsePromise = page.waitForResponse(
@@ -38,9 +37,6 @@ setup("authenticate", async ({ page }) => {
   );
   await setup.step("Submit the form", async () => {
     await page.locator("form").getByText("Sign up").click();
-  });
-  await setup.step("Await for the request", async () => {
-    await signupRequestPromise;
   });
   await setup.step("Await for the response", async () => {
     await signupResponsePromise;

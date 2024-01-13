@@ -27,8 +27,6 @@ const register = async ({ page, step }) => {
     }, credentials);
   });
 
-  const signupRequestPromise = page.waitForRequest("**/api/users");
-
   // https://api.realworld.io/api/users goes 307 and redirects to https://api.realworld.io/api/users
   // hence we can't use request.response() to get the response
   const signupResponsePromise = page.waitForResponse(
@@ -40,13 +38,7 @@ const register = async ({ page, step }) => {
     await page.locator("form").getByText("Sign up").click();
   });
 
-  await step("Assert about the request", async () => {
-    await signupRequestPromise;
-
-    // ... all the payload assertions are skipped for brevity...
-  });
-
-  await step("Assert about the response", async () => {
+  await step("Assert about the request and the response", async () => {
     await signupResponsePromise;
 
     // ... all the payload assertions are skipped for brevity...
